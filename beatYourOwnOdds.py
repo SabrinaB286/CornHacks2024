@@ -1,4 +1,5 @@
 import time
+import random
 #Made by Sabrina Benford 02/18/2024
 
 #Lists of all different accepting spellings for all variables.
@@ -28,6 +29,7 @@ def intro():
 #Checks to see if the user wants to keep the program running.
 #Return 1 for keep the program going or 0 for end the program.
 def replay():
+    print()
     print("Would you like to take another quiz?")
     stay = input("Please input yes or no:")
     if (stay in spellingOfYes):
@@ -39,6 +41,7 @@ def replay():
 #This function tells the user that the program is ended.
 #This will only run after at least 1 quiz has been done fully.
 def exit():
+    print()
     print("Thank you for using our services.")
     print("We hope we can help you solve out another problem soon!")
     print(",---.              ||              |")
@@ -50,10 +53,12 @@ def exit():
 #If user inputs 'Ask' any time they are allowed to give user input then they will be taken here (unless in the middle of a quiz).
 #User can ask about the problem options and instructions.
 def Ask():
+    print()
     print(",---.     |    ")
     print("|---|,---.|__/ ")
     print("|   |`---.|  \ ")
     print("`   '`---'`   `")
+    print()
     print("What do you want to know more about?")
     print("You can ask about:")
     time.sleep(0.5)
@@ -66,8 +71,9 @@ def Ask():
     print("\033[0;34mEvents",end="\033[0;0m")
     print()
     check = True
-    the_Ask = input("Please input what you want more information about here:")
+    print()
     while (check):
+        the_Ask = input("Please input what you want more information about here:")
         if (the_Ask in spellingOfInformation):
             instructions()
             print("If you need any more info on anything please just retype 'Ask' again.")
@@ -89,7 +95,7 @@ def Ask():
 
 #This function calculates the percent of all the ratings 5-1 star and shows it to user.
 #ratings - The list of integers from 1-5 for the relationship quiz.
-def calculateRelationshipRating(ratings):
+def calculateRelationshipRating(ratings,comment):
     fiveStar = 0
     fourStar = 0
     threeStar = 0
@@ -107,15 +113,25 @@ def calculateRelationshipRating(ratings):
             twoStar += 1
         elif (rate == 1):
             oneStar += 1
-    print("For the Relationship quiz",((fiveStar/total)*100),"percent of people gave it a five star rating.")
-    print("For the Relationship quiz",((fourStar/total)*100),"percent of people gave it a four star rating.")
-    print("For the Relationship quiz",((threeStar/total)*100),"percent of people gave it a three star rating.")
-    print("For the Relationship quiz",((twoStar/total)*100),"percent of people gave it a two star rating.")
-    print("For the Relationship quiz",((oneStar/total)*100),"percent of people gave it a one star rating.")
+    print()
+    print("For the Relationship quiz",int((fiveStar/total)*100),"percent of people gave it a five star rating.")
+    print("For the Relationship quiz",int((fourStar/total)*100),"percent of people gave it a four star rating.")
+    print("For the Relationship quiz",int((threeStar/total)*100),"percent of people gave it a three star rating.")
+    print("For the Relationship quiz",int((twoStar/total)*100),"percent of people gave it a two star rating.")
+    print("For the Relationship quiz",int((oneStar/total)*100),"percent of people gave it a one star rating.")
+    print()
+    print("Here are also some comments about the quiz from people that have taken the quiz before:")
+    print()
+    randomCheck = []
+    for i in range (0,random.randint(2,3)):
+        j = random.randint(0,len(comment)-1)
+        if comment[j] not in randomCheck:
+            print(comment[j])
+            randomCheck.append(comment[j])
 
 #This function calculates the percent of all the ratings 5-1 star and shows it to user.
 #ratings - The list of integers from 1-5 for the purchase quiz.
-def calculatePurchasesRating(ratings):
+def calculatePurchasesRating(ratings,comment):
     fiveStar = 0
     fourStar = 0
     threeStar = 0
@@ -133,15 +149,25 @@ def calculatePurchasesRating(ratings):
             twoStar += 1
         elif (rate == 1):
             oneStar += 1
-    print("For the Purchase quiz",((fiveStar/total)*100),"percent of people gave it a five star rating.")
-    print("For the Purchase quiz",((fourStar/total)*100),"percent of people gave it a four star rating.")
-    print("For the Purchase quiz",((threeStar/total)*100),"percent of people gave it a three star rating.")
-    print("For the Purchase quiz",((twoStar/total)*100),"percent of people gave it a two star rating.")
-    print("For the Purchase quiz",((oneStar/total)*100),"percent of people gave it a one star rating.")
+    print()
+    print("For the Purchase quiz",int((fiveStar/total)*100),"percent of people gave it a five star rating.")
+    print("For the Purchase quiz",int((fourStar/total)*100),"percent of people gave it a four star rating.")
+    print("For the Purchase quiz",int((threeStar/total)*100),"percent of people gave it a three star rating.")
+    print("For the Purchase quiz",int((twoStar/total)*100),"percent of people gave it a two star rating.")
+    print("For the Purchase quiz",int((oneStar/total)*100),"percent of people gave it a one star rating.")
+    print()
+    print("Here are also some comments about the quiz from people that have taken the quiz before:")
+    print()
+    randomCheck = []
+    for i in range (0,random.randint(2,3)):
+        j = random.randint(0,len(comment)-1)
+        if comment[j] not in randomCheck:
+            print(comment[j])
+            randomCheck.append(comment[j])
 
 #This function calculates the percent of all the ratings 5-1 star and shows it to user.
 #ratings - The list of integers from 1-5 for the event quiz.
-def calculateEventRating(ratings):
+def calculateEventRating(ratings,comment):
     fiveStar = 0
     fourStar = 0
     threeStar = 0
@@ -159,45 +185,76 @@ def calculateEventRating(ratings):
             twoStar += 1
         elif (rate == 1):
             oneStar += 1
-    print("For the Event quiz",((fiveStar/total)*100),"percent of people gave it a five star rating.")
-    print("For the Event quiz",((fourStar/total)*100),"percent of people gave it a four star rating.")
-    print("For the Event quiz",((threeStar/total)*100),"percent of people gave it a three star rating.")
-    print("For the Event quiz",((twoStar/total)*100),"percent of people gave it a two star rating.")
-    print("For the Event quiz",((oneStar/total)*100),"percent of people gave it a one star rating.")
+    print()
+    print("For the Event quiz",int((fiveStar/total)*100),"percent of people gave it a five star rating.")
+    print("For the Event quiz",int((fourStar/total)*100),"percent of people gave it a four star rating.")
+    print("For the Event quiz",int((threeStar/total)*100),"percent of people gave it a three star rating.")
+    print("For the Event quiz",int((twoStar/total)*100),"percent of people gave it a two star rating.")
+    print("For the Event quiz",int((oneStar/total)*100),"percent of people gave it a one star rating.")
+    print()
+    print("Here are also some comments about the quiz from people that have taken the quiz before:")
+    print()
+    randomCheck = []
+    for i in range (0,random.randint(2,3)):
+        j = random.randint(0,len(comment)-1)
+        if comment[j] not in randomCheck:
+            print(comment[j])
+            randomCheck.append(comment[j])
 
 #Reads in the rating file and gets the rates (5-1 stars) for the respective quiz.
 def getRatings(askedForQuizRating):
     relationshipRating = []
+    relationshipComments = []
     purchaseRating = []
+    purchaseComments = []
     eventRating = []
+    eventComments = []
     file = open("ratings.txt")
     for line in file:
-        typeOfQuiz, ratingNumber = [str(i) for i in line.split()]
+        comment = -1
+        typeOfQuiz, ratingNumber = [str(i) for i in line.split(' ',1)]
+        if ' ' in ratingNumber:
+            ratingNumber,comment = [str(i) for i in ratingNumber.split(' ',1)]
         if (typeOfQuiz == "Relationships"):
             relationshipRating.append(int(ratingNumber))
+            if comment != -1:
+                comment = comment.replace("\n","")
+                relationshipComments.append(comment)
         if (typeOfQuiz == "Purchases"):
             purchaseRating.append(int(ratingNumber))
+            if comment != -1:
+                comment = comment.replace("\n","")
+                purchaseComments.append(comment)
         if (typeOfQuiz == "Events"):
             eventRating.append(int(ratingNumber))
+            if comment != -1:
+                comment = comment.replace("\n","")
+                eventComments.append(comment)
+    print(relationshipComments)
     if (askedForQuizRating == "Relationships"):
-        calculateRelationshipRating(relationshipRating)
+        calculateRelationshipRating(relationshipRating,relationshipComments)
     if (askedForQuizRating == "Events"):
-        calculateEventRating(eventRating)
+        calculateEventRating(eventRating,eventComments)
     if (askedForQuizRating == "Purchases"):
-        calculateEventRating(purchaseRating)
+        calculateEventRating(purchaseRating,purchaseComments)
 
 #Gets a number from user (1-5) then inputs it into the rating quiz.
 def rateMyQuiz(quizName):    
-    check = True
-    while (check):
+    checkNumber = True
+    print()
+    while (checkNumber):
         rate = input("Please input a number from 1 to 5:")  
         if ((rate == "5") or (rate == "4") or (rate == "3") or (rate == "2") or (rate == "1")):
             file = open("ratings.txt", "a")
             file.write("\n"+quizName + " "+str(rate))
-            file.close()
-            check = False
+            checkNumber = False
         else:
             print("This is number a from 1-5. Please try again.")
+    print("You may also leave a comment if you would like.")
+    comment = input("Input your comment or 'No' if you want no comment.")
+    if (comment not in spellingOfNo):
+        file.write(" "+comment)
+    file.close()
 
 #Tells user what the program is about, what it can do, and how it does it.
 #This user can come back to this to remind themselves of this information anytime.
@@ -205,11 +262,13 @@ def instructions():
     print("|          |                   |    o               ")
     print("|,---.,---.|--- ,---..   .,---.|--- .,---.,---.,---.")
     print("||   |`---.|    |    |   ||    |    ||   ||   |`---.")
-    print("``   '`---'`---'`    `---'`---'`---'``---'`   '`---'")                       
+    print("``   '`---'`---'`    `---'`---'`---'``---'`   '`---'")  
+    print()                     
     print("This is a program to help you work through tough decisions.")
     print("Everyone regrets something, relationships, missing out on things, money issues.")
     print("We use your answers to help you make the right decision.")
     print("Note we are not therapy, we are also not responible for any choice you make. We are only here to give advice.")
+    print()
     print("Right now we offer services for:")
     time.sleep(0.5)
     print("\033[0;31mRelationships")
@@ -217,6 +276,7 @@ def instructions():
     print("\033[0;32mPurchases")
     time.sleep(0.5)
     print("\033[0;34mEvents")
+    print()
     print("\033[0;0mIf you are unsure of what we mean by these catagories feel free to input 'Ask'.")
     print("Ask allows you to get more info about these choices or to see this page again.")
 
@@ -229,6 +289,7 @@ def getName():
     print("| | ||   |,---||      `---.    `---'|   ||   ||        | \ |,---|| | ||---'  |  ")
     print("`-'-'`   '`---^`---'  `---'      |  `---'`---'`        `  `'`---^` ' '`---'  o ")
     #Checks to see if 'Ask' was input into the userName. If so they will be taken to the Ask page.
+    print()
     checkAskName = True
     while (checkAskName):
         userName = input("Please enter your name here:")
@@ -248,6 +309,7 @@ def getProblem():
     print("| | ||---.,---.|--- ' ,---.    |   |,---..   .,---.    |---',---.,---.|---.|    ,---.,-.-.  ,-'")
     print("| | ||   |,---||      `---.    `---'|   ||   ||        |    |    |   ||   ||    |---'| | |  |  ")
     print("`-'-'`   '`---^`---'  `---'      |  `---'`---'`        `    `    `---'`---'`---'`---'` ' '  o ")
+    print()
     checkProblem = True
     while (checkProblem):
         print("What seems to be your problem today?")
@@ -259,6 +321,7 @@ def getProblem():
         time.sleep(0.5)
         print("\033[0;34mEvents (or 3)")
         print("\033[0;0m")
+        print()
         userProblem = input("Please enter in your problem that we can help with today:")
         if(userProblem == 'Ask'):
             Ask()
@@ -281,6 +344,7 @@ def answerQuestion():
     check = True
     while (check):
         print("For this question you are not allowed to type 'Ask' please wait till the end of the quiz.")
+        print()
         print("Please answer the question with:")
         print("\033[0;31m1 (or No)")
         print("\033[0;35m2 (or Unlikely)")
@@ -326,6 +390,7 @@ def relationshipInfo():
     print("https://www.psychologytoday.com/us/blog/the-psychology-relationships/202110/how-tell-if-relationship-is-actually-working (psychology today)")
     print("As always we aren't match makers, just people giving advise from experience.")
     print("To prove this quiz is up to your standards here some ratings from others that have taken this quiz.")
+    print()
     getRatings("Relationships")
 
 
@@ -414,6 +479,7 @@ def relationshipQuiz(userName):
     print("         |                             ")
     print("Do you feel your relation has good communication?")
     totalPoints += answerQuestion()
+    print()
     #results 
     if (totalPoints < 0):
         print(userName, "this relationship seems pretty toxic. We think it's in your best interest to get out of the relationship.")
@@ -431,6 +497,7 @@ def relationshipQuiz(userName):
         print("This person is sure to stay your rock for years to come.")
     print("Would you like to rate this quiz?")
     check = True
+    print()
     while check:
         rateCheck = input("Please input yes or no:")
         if (rateCheck in spellingOfYes):
@@ -454,6 +521,7 @@ def eventInfo():
     print("Our sources come from common sense and the team's personal experience.")
     print("Any final choice you make is on you. We can not force you to do something nor should you take our word as final.")
     print("To prove this quiz is up to your standards here some ratings from others that have taken this quiz.")
+    print()
     getRatings("Events")
 
 
@@ -535,6 +603,7 @@ def eventQuiz(userName):
     print("         |                             ")
     print("Do you feel you'd regret going to this event?")
     totalPoints -= answerQuestion()
+    print()
     #results 
     if (totalPoints < 3):
         print(userName,"you should not go to this at all. You do not have the time, resources, or want for this.")
@@ -551,7 +620,20 @@ def eventQuiz(userName):
     else:
         print(userName, "you should definetly go to this event.")
         print("You will enjoy yourself, it's worth the time and energy to go to this event.")
-    print(totalPoints)
+    print()
+    print("Would you like to rate this quiz?")
+    check = True
+    while check:
+        rateCheck = input("Please input yes or no:")
+        if (rateCheck in spellingOfYes):
+            rateMyQuiz("Events")
+            print("Thank you for your input!")
+            print("The most ratings we get the better these quizzes will become.")
+            check = False
+        else:
+            print("That's okay, maybe next time!")
+            check = False
+
 
 #Info about the purchase quiz.
 def purchaseInfo():
@@ -568,6 +650,7 @@ def purchaseInfo():
     print("https://www.psecu.com/learn/financial-tips-for-every-stage-in-life/2020/06/05/how-to-make-good-purchasing-decisions (PSECU)")
     print("We are not finical agents and any final choice you make is on you.")
     print("To prove this quiz is up to your standards here some ratings from others that have taken this quiz.")
+    print()
     getRatings("Purchases")
 
 #Goes through the purchase quiz with the user.
@@ -650,6 +733,7 @@ def purchaseQuiz(userName):
     print("Is this purchase necessary?")
     totalPoints += answerQuestion()
     #results
+    print()
     if (totalPoints < 14):
         print (userName, "this purchase seems like a very bad idea. You should not make this purchase.")
         print("You will most likely regret this purchase later.")
@@ -666,6 +750,19 @@ def purchaseQuiz(userName):
         print(userName, "this is a great purchase for you. You will not regret this later.")
         print("If you are thinking of this being a more than single purchase maybe this would be good for that.")
         print("But before buy more than one try out one. If you don't like it them don't buy another one.")
+    print()
+    print("Would you like to rate this quiz?")
+    check = True
+    while check:
+        rateCheck = input("Please input yes or no:")
+        if (rateCheck in spellingOfYes):
+            rateMyQuiz("Purchases")
+            print("Thank you for your input!")
+            print("The most ratings we get the better these quizzes will become.")
+            check = False
+        else:
+            print("That's okay, maybe next time!")
+            check = False
 
 #Calls all the functions in correct order.
 intro()
