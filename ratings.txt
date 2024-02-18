@@ -1,12 +1,12 @@
-Relationships 5
-Purchases 4
-Events 3
-Events 2
-Relationships 2
-Relationships 5
-Events 2
-Purchases 5
-Events 5
+Relationships 5 Great quiz, really helpful!
+Purchases 4 Not bad advice.
+Events 3 I should've gone to that party.
+Events 2 That event has a waste of time.
+Relationships 2 Should've followed the advice.
+Relationships 5 Advice I needed!
+Events 2 
+Purchases 5 Omg I did not need that item, thank you
+Events 5 Great advice, I'm glad I took it.
 Purchases 5
 Events 5
 Relationships 3
@@ -256,3 +256,5 @@ Events 2
 Relationships 2
 Events 3
 Events 5
+Relationships 5
+Relationships 4 Would take again for another purchase.
